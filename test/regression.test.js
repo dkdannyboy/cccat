@@ -77,3 +77,77 @@ test('회귀: wrapper가 기존 statusline을 5초 캐시로 실행한다', () =
   assert.ok(w.includes('cache'), '캐시 로직 포함');
   assert.ok(w.includes('EXPENSIVE'), '기존 명령 포함');
 });
+
+// ── 2차 감사(evaluator-active) 지적 사항 회귀 ──
+
+test('회귀: 수동으로 statusline을 바꾼 뒤 재설치해도 최신 설정이 보존된다', () => {
+  const { execFileSync } = require('child_process');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cccat-reg2-'));
+  const env = { ...process.env, CCCAT_HOME: path.join(tmp, '.cccat'), CCCAT_CLAUDE_DIR: path.join(tmp, '.claude') };
+  fs.mkdirSync(env.CCCAT_CLAUDE_DIR, { recursive: true });
+  const sf = path.join(env.CCCAT_CLAUDE_DIR, 'settings.json');
+  fs.writeFileSync(sf, JSON.stringify({ statusLine: { type: 'command', command: 'echo FIRST' } }));
+  const CLI2 = path.join(__dirname, '..', 'bin', 'cccat.js');
+  execFileSync(process.execPath, [CLI2, 'install'], { env, encoding: 'utf8' });
+  // 사용자가 수동으로 statusline을 교체 (cccat 항목 제거)
+  fs.writeFileSync(sf, JSON.stringify({ statusLine: { type: 'command', command: 'echo SECOND' } }));
+  execFileSync(process.execPath, [CLI2, 'install'], { env, encoding: 'utf8' });
+  execFileSync(process.execPath, [CLI2, 'uninstall'], { env, encoding: 'utf8' });
+  const after = JSON.parse(fs.readFileSync(sf, 'utf8'));
+  assert.equal(after.statusLine.command, 'echo SECOND', '사용자의 최신 설정이 복원되어야 함');
+});
+
+test('회귀: manifest 소실 후 uninstall해도 백업에서 statusline을 복구한다', () => {
+  const { execFileSync } = require('child_process');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cccat-reg3-'));
+  const env = { ...process.env, CCCAT_HOME: path.join(tmp, '.cccat'), CCCAT_CLAUDE_DIR: path.join(tmp, '.claude') };
+  fs.mkdirSync(env.CCCAT_CLAUDE_DIR, { recursive: true });
+  const sf = path.join(env.CCCAT_CLAUDE_DIR, 'settings.json');
+  fs.writeFileSync(sf, JSON.stringify({ statusLine: { type: 'command', command: 'echo PRECIOUS' } }));
+  const CLI2 = path.join(__dirname, '..', 'bin', 'cccat.js');
+  execFileSync(process.execPath, [CLI2, 'install'], { env, encoding: 'utf8' });
+  fs.unlinkSync(path.join(env.CCCAT_HOME, 'install-manifest.json')); // manifest 소실
+  execFileSync(process.execPath, [CLI2, 'uninstall'], { env, encoding: 'utf8' });
+  const after = JSON.parse(fs.readFileSync(sf, 'utf8'));
+  assert.ok(after.statusLine && after.statusLine.command === 'echo PRECIOUS', '백업 복구 실패: ' + JSON.stringify(after.statusLine));
+});
+
+test('회귀: hook 명령은 node 경로를 런처로 실행 시점에 해석한다', () => {
+  const { execFileSync } = require('child_process');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cccat-reg4-'));
+  const env = { ...process.env, CCCAT_HOME: path.join(tmp, '.cccat'), CCCAT_CLAUDE_DIR: path.join(tmp, '.claude') };
+  fs.mkdirSync(env.CCCAT_CLAUDE_DIR, { recursive: true });
+  fs.writeFileSync(path.join(env.CCCAT_CLAUDE_DIR, 'settings.json'), '{}');
+  const CLI2 = path.join(__dirname, '..', 'bin', 'cccat.js');
+  execFileSync(process.execPath, [CLI2, 'install'], { env, encoding: 'utf8' });
+  const s = JSON.parse(fs.readFileSync(path.join(env.CCCAT_CLAUDE_DIR, 'settings.json'), 'utf8'));
+  const cmd = s.hooks.PreToolUse.find((e) => e.hooks[0].command.includes('cccat')).hooks[0].command;
+  assert.ok(cmd.includes('run.sh'), 'hook은 런처 경유: ' + cmd);
+  const launcher = fs.readFileSync(path.join(env.CCCAT_HOME, 'run.sh'), 'utf8');
+  assert.ok(launcher.includes('command -v node'), 'PATH의 node 우선');
+  // 런처가 실제로 동작
+  const out = execFileSync('/bin/sh', [path.join(env.CCCAT_HOME, 'run.sh'), 'version'], { env, encoding: 'utf8' });
+  assert.ok(out.includes('cccat v'));
+});
+
+test('회귀: 퀴즈 빈칸이 문장부호를 정답 힌트로 노출하지 않는다', () => {
+  const { blankOut } = require('../lib/render');
+  const b = blankOut('this is O(n squared)');
+  assert.ok(b.word, '퀴즈 생성됨');
+  assert.ok(b.text.includes('s＿＿＿＿d)'), '마지막 글자는 d, 괄호는 바깥: ' + b.text);
+});
+
+test('회귀: withLock — 락 보유 중에는 다른 호출이 ok:false로 물러난다', () => {
+  const { withLock } = require('../lib/store');
+  const lockDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'cccat-lock-')), '.lock');
+  const r = withLock(lockDir, () => {
+    const inner = withLock(lockDir, () => 'nested', { timeoutMs: 100, staleMs: 60000 });
+    assert.equal(inner.ok, false, '중첩 획득은 실패해야 함');
+    return 'outer';
+  });
+  assert.equal(r.ok, true);
+  assert.equal(r.value, 'outer');
+  // 해제 후 재획득 가능
+  const again = withLock(lockDir, () => 1);
+  assert.equal(again.ok, true);
+});
