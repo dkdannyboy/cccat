@@ -6,7 +6,7 @@
   "type": "commonjs",
   "engines": { "node": ">=18" },
   "scripts": {
-    "test": "node --test 'test/**/*.test.js'"
+    "test": "node --test test/*.test.js"
   },
   "files": ["bin", "lib", "content", "assets", "scripts", "README.md", "LICENSE"],
   "keywords": ["claude-code", "statusline", "english", "learning", "korean", "cat"],
