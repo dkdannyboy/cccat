@@ -151,3 +151,15 @@ test('회귀: withLock — 락 보유 중에는 다른 호출이 ok:false로 물
   const again = withLock(lockDir, () => 1);
   assert.equal(again.ok, true);
 });
+
+test('회귀: 생성 스크립트의 mtime 취득은 GNU stat 우선 + 숫자 검증 (Linux 이식성)', () => {
+  const install = require('../lib/install');
+  for (const script of [install.makeLauncher(), install.makeWrapper('echo X')]) {
+    assert.ok(script.includes('_mtime'), '_mtime 헬퍼 사용');
+    const gnu = script.indexOf('stat -c %Y');
+    const bsd = script.indexOf('stat -f %m');
+    assert.ok(gnu >= 0 && bsd >= 0, 'stat 양쪽 폴백 존재');
+    assert.ok(gnu < bsd, 'GNU(-c %Y)를 BSD(-f %m)보다 먼저 시도해야 함 (Linux stat -f 오작동 회피)');
+    assert.ok(/case "\$m" in ''\|\*\[!0-9\]\*\) m=0/.test(script), '숫자 검증 case 포함');
+  }
+});
