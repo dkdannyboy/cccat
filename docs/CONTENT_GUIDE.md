@@ -1,0 +1,72 @@
+# Content Guide
+
+## Schema
+
+Each content pack is a JSON file with an `items` array. `lib/content.js` loads
+`content/pack-core.json` first, then every `*.json` file in `~/.cccat/packs/`, merging all
+items and de-duplicating by `id` (first occurrence wins).
+
+An item:
+
+```json
+{
+  "id": "git-stage-changes",
+  "en": "stage the changes",
+  "ko": "변경사항을 스테이징하다",
+  "type": "collocation",
+  "example": "Let me stage the changes before I commit.",
+  "example_ko": "커밋하기 전에 변경사항을 스테이징할게요.",
+  "tags": ["git"],
+  "difficulty": 1
+}
+```
+
+| Field | Required | Notes |
+|---|---|---|
+| `id` | yes | Unique string. Used for dedup, review history keys, and `cccat save`/`saved` lookups. |
+| `en` | yes | The English expression shown in the status line. |
+| `ko` | yes | Korean meaning. |
+| `type` | no | Free-form label (`collocation`, `phrase`, `idiom`, ...); not read by the code, documentation only. |
+| `example` | no | English example sentence, shown on the second status-line row when `show_example` is on. |
+| `example_ko` | no | Korean translation of the example; only shown when the terminal is ≥110 columns wide. |
+| `tags` | no | Array of tags used for context matching (see vocabulary below). |
+| `difficulty` | no | Integer, defaults to `1` if omitted. Filtered by the `difficulty_max` config key (default `3`). |
+
+An item missing `id`, `en`, or `ko` is silently skipped by `lib/content.js`.
+
+## Tag vocabulary
+
+The core pack currently uses: `ai`, `api`, `backend`, `build`, `collab`, `config`, `db`,
+`debug`, `deploy`, `docs`, `error`, `file`, `frontend`, `general`, `git`, `github`, `install`,
+`perf`, `planning`, `refactor`, `review`, `search`, `security`, `test`.
+
+These are exactly the tags that `lib/classify.js` can emit from hook signals (file extensions,
+Bash command patterns, and keyword matches on prompt text). An item's `tags` should draw from
+this vocabulary so it can actually be matched by context; inventing a new tag only makes sense
+if you also expect it to surface some other way (e.g. it will still be selectable as a "new"
+or "review" item even without a context match — see `lib/select.js`).
+
+## Quality bar
+
+- One clearly usable phrase or collocation per item — not a whole sentence to memorize, not a
+  single common word.
+- `example` should be a natural sentence a developer would actually say or write, not a
+  dictionary-style example.
+- Keep `ko` a genuine translation of the meaning in a dev-conversation context, not a literal
+  word-for-word gloss.
+- `difficulty` should reflect how uncommon the phrase is for an intermediate reader, not
+  grammatical complexity: `1` = common in daily standups/PRs, `2` = seen in code review or docs
+  but not everyday chat, `3` = specialized or idiomatic.
+- Avoid duplicate `id`s across your pack and the core pack — a duplicate id in a user pack is
+  silently dropped in favor of whichever pack loaded first.
+
+## Adding a user pack
+
+1. Create `~/.cccat/packs/my-pack.json` (any filename ending in `.json`).
+2. Give it the same `{ "items": [...] }` shape as `content/pack-core.json`.
+3. Save — cccat picks it up automatically. `lib/content.js` caches the merged list for 5
+   seconds, so a running Claude Code session will notice the update at the next cache miss.
+4. Verify with `cccat doctor` (shows the total item count loaded) or `cccat demo`.
+
+No restart or reinstall is needed; user packs are read from disk on every cache refresh, not
+bundled at install time.
