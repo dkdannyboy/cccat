@@ -32,3 +32,20 @@
 - **Single global install scope.** cccat installs once into the user-level Claude Code
   settings; there is no per-project enable/disable beyond what a project's own `statusLine`
   override naturally provides.
+
+## 여러 Claude Code 세션 동시 실행
+
+여러 세션이 `~/.cccat/state.json`을 공유합니다. 쓰기는 원자적(임시 파일 + rename)이라
+파일이 깨지지는 않지만, 마지막에 쓴 세션이 이기는(last-writer-wins) 구조라서:
+
+- 고양이 상태는 가장 최근에 이벤트를 보낸 세션을 따라갑니다.
+- 드물게 오늘 카운터 증가가 1~2회 유실될 수 있습니다.
+
+학습 기능에는 영향이 없으며, 세션별 독립 상태는 향후 개선 항목입니다(FUTURE.md).
+
+## 상시 CPU 사용
+
+애니메이션을 위해 statusline이 1초마다 재실행됩니다(호출당 약 0.1초 CPU, 단일 코어의
+약 7-8%). 기존 statusline 명령은 5초 캐시로 보호됩니다. 배터리가 민감하다면
+`cccat config set show_animation false` 후 재설치 시 refreshInterval을 늘리는 방안을
+FUTURE.md에 계획해 두었습니다.
