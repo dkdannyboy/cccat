@@ -91,6 +91,8 @@ cccat demo thinking
 | `cccat install` | Claude Code에 설치 (설정 자동 백업) |
 | `cccat uninstall [--purge]` | 제거, 기존 statusline/훅 복원. `--purge`는 학습 데이터까지 삭제 |
 | `cccat doctor` | 설치 상태, statusline, 훅 개수, 콘텐츠 로드 여부 진단 |
+| `cccat adopt` | 자체 statusLine이 있는 프로젝트에서 실행 — 프로젝트 statusline과 공존 설정 (`.claude/settings.local.json` 사용, `settings.json`은 건드리지 않음) |
+| `cccat unadopt` | adopt 해제 및 원상 복원 |
 | `cccat on` / `cccat off` | 기능 켜기 / 끄기 |
 | `cccat pause [분]` / `cccat resume` | 지정 시간(기본 30분) 일시 정지 / 즉시 재개 |
 | `cccat config list` | 전체 설정 값 출력 |
@@ -118,7 +120,8 @@ cccat demo thinking
 | `show_korean` | `true` | 한국어 뜻 표시 |
 | `show_example` | `true` | 예문 줄 표시 (넓은 터미널에서만) |
 | `quiz_ratio` | `0.2` | 이미 본 표현 중 빈칸 퀴즈로 낼 비율 (0~1) |
-| `rotate_sec` | `25` | 표현을 바꾸는 최소 간격(초) |
+| `rotate_sec` | `30` | 표현을 바꾸는 최소 간격(초) |
+| `refresh_sec` | `1` | 애니메이션 갱신 주기(초, 1~10). 변경 후 `cccat install` 재실행 필요 |
 | `review_ratio` | `0.3` | 새 표현 대신 복습을 우선할 확률 (0~1) |
 | `context_aware` | `true` | 최근 작업 맥락(파일 종류/명령어)에 맞는 표현 우선 선택 |
 | `promo` | `true` | danielclass.com 안내 문구 표시 (하루 1회 이하) |

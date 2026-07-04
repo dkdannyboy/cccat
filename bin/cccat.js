@@ -30,6 +30,17 @@ async function main() {
     case 'doctor':
       return require('../lib/install').doctor().forEach((l) => println(l));
 
+    case 'adopt': {
+      const r = require('../lib/adopt').adopt(process.cwd());
+      r.log.forEach((l) => println('• ' + l));
+      return;
+    }
+    case 'unadopt': {
+      const r = require('../lib/adopt').unadopt(process.cwd());
+      r.log.forEach((l) => println('• ' + l));
+      return;
+    }
+
     case 'on': case 'off': {
       configMod.set('enabled', cmd === 'on');
       println(cmd === 'on' ? '(=^･ω･^=) cccat 켜짐' : '(=－ω－=)zZ cccat 꺼짐');
@@ -164,6 +175,7 @@ async function main() {
       println('  install            Claude Code에 설치 (백업 자동 생성)');
       println('  uninstall [--purge] 제거 및 기존 설정 복원');
       println('  doctor             설치 상태 진단');
+      println('  adopt | unadopt    자체 statusline이 있는 프로젝트에서 공존 설정/해제');
       println('  on | off           기능 켜기/끄기');
       println('  pause [분] | resume 일시 정지 / 재개');
       println('  config ...         설정 (list/get/set)');

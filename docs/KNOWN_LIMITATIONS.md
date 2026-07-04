@@ -1,14 +1,19 @@
 # Known Limitations
 
 - **Animation is roughly 1fps.** The status line only redraws when Claude Code re-renders it —
-  on hook events plus a `refreshInterval: 1` second timer set at install time. There is no
-  independent render loop, so the cat's frame changes at most once per second even though
-  `lib/cat.js` computes frames on a 700ms/120ms cycle.
+  on hook events plus a `refreshInterval` timer (default 1s, `config refresh_sec` 1–10) set at
+  install time. There is no independent render loop, so the cat's frame changes at most once
+  per refresh even though `lib/cat.js` computes frames on a 700ms/120ms cycle. Setting
+  `show_animation false` (then reinstalling) removes the timer entirely — zero idle cost,
+  updates only on events.
 
-- **Project-level `statusLine` settings override cccat.** cccat installs into the user-level
-  `~/.claude/settings.json`. If a project defines its own `.claude/settings.json` with a
-  `statusLine` entry, that project's setting takes precedence and cccat's wrapper will not be
-  shown while working in that project.
+- **Project-level `statusLine` needs a one-time `cccat adopt`.** cccat installs into the
+  user-level `~/.claude/settings.json`. If a project defines its own `statusLine`, run
+  `cccat adopt` once in that project: it writes a coexistence wrapper (project statusline +
+  cccat lines) into `.claude/settings.local.json` (git-ignored; higher precedence than the
+  project `settings.json`, which is never touched). Undo with `cccat unadopt`.
+  `cccat doctor` detects this situation and suggests the command. Fully automatic adoption is
+  deliberately not done — cccat should not silently create files inside your projects.
 
 - **Expression relevance is rule-based, not learned.** `lib/classify.js` maps hook signals to
   tags using a fixed table of file extensions, Bash command regexes, and keyword patterns.
@@ -45,7 +50,14 @@
 
 ## 상시 CPU 사용
 
-애니메이션을 위해 statusline이 1초마다 재실행됩니다(호출당 약 0.1초 CPU, 단일 코어의
-약 7-8%). 기존 statusline 명령은 5초 캐시로 보호됩니다. 배터리가 민감하다면
-`cccat config set show_animation false` 후 재설치 시 refreshInterval을 늘리는 방안을
-FUTURE.md에 계획해 두었습니다.
+애니메이션을 위해 statusline이 `refresh_sec`(기본 1초)마다 재실행됩니다(호출당 약 0.1초
+CPU). 기존 statusline 명령은 5초 캐시로 보호됩니다. 줄이는 방법:
+
+- `cccat config set refresh_sec 3` 후 `cccat install` — 애니메이션은 느려지고 비용은 1/3
+- `cccat config set show_animation false` 후 `cccat install` — 타이머 제거, 유휴 비용 0
+
+## 훅 오버헤드
+
+도구 호출당 PreToolUse 훅이 약 80ms를 더합니다(Node 콜드스타트). PostToolUse는 등록하지
+않으며, 연속 도구 호출 시 2초 스로틀로 PreToolUse의 node 기동 자체를 생략합니다
+(상태 전환이 최대 2초 늦어질 수 있음). 남는 비용은 Node 기반 구조의 한계입니다.
