@@ -218,3 +218,7 @@ CLAUDE.md
 cccat-plan.txt
 .mcp.json
 node_modules/
+
+# cccat CLI는 추적한다 (위 Go 템플릿의 bin/ 무시 규칙 예외)
+!bin/
+!bin/cccat.js
