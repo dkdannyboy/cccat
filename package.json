@@ -1,15 +1,16 @@
 {
   "name": "cccat",
-  "version": "0.1.0",
-  "description": "Claude Code Cat — turn Claude Code's waiting moments into tiny English lessons (for Korean developers), with a cute animated cat in your status line.",
+  "version": "0.2.0",
+  "description": "Claude Code Cat — turn Claude Code's waiting moments into tiny English lessons (Korean & Japanese explanations), with a cute animated cat in your status line.",
   "bin": { "cccat": "bin/cccat.js" },
   "type": "commonjs",
   "engines": { "node": ">=18" },
   "scripts": {
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "postinstall": "node -e \"process.stdout.write('\\n(=^_ω_^=) cccat 준비 완료 — 활성화: npx cccat install\\n\\n')\""
   },
   "files": ["bin", "lib", "content", "assets", "scripts", "README.md", "LICENSE"],
-  "keywords": ["claude-code", "statusline", "english", "learning", "korean", "cat"],
+  "keywords": ["claude-code", "statusline", "english", "learning", "korean", "japanese", "cat", "cli"],
   "author": "dkdannyboy",
   "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/dkdannyboy/cccat.git" }

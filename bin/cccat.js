@@ -6,6 +6,9 @@ const stateMod = require('../lib/state');
 
 const [, , cmd, ...args] = process.argv;
 
+// 출력 파이프가 먼저 닫혀도(예: `cccat ... | head`) 죽지 않도록 EPIPE 무시
+process.stdout.on('error', (e) => { if (e.code === 'EPIPE') process.exit(0); });
+
 function println(s = '') { process.stdout.write(s + '\n'); }
 
 async function main() {
@@ -62,6 +65,24 @@ async function main() {
       return;
     }
 
+    case 'lang': {
+      const content = require('../lib/content');
+      const supported = content.availableLanguages();
+      const target = args[0];
+      if (!target) {
+        const cur = configMod.load().language || 'ko';
+        println(`현재 설명 언어: ${cur}`);
+        println(`지원 언어: ${supported.join(', ')}`);
+        println('변경: cccat lang <code>  (예: cccat lang ja)');
+        return;
+      }
+      const r = configMod.set('language', target);
+      if (!r.ok) return println(`오류: ${r.error}`);
+      const NAMES = { ko: '한국어', ja: '日本語 (일본어)', en: 'English', zh: '中文 (중국어)' };
+      println(`설명 언어를 ${NAMES[r.value] || r.value}(으)로 변경했습니다. 상태 표시줄에 곧 반영됩니다.`);
+      return;
+    }
+
     case 'config': {
       const [sub, key, ...rest] = args;
       if (!sub || sub === 'list') {
@@ -93,7 +114,7 @@ async function main() {
       println(`오늘 본 표현 ${ids.length}개:`);
       for (const id of ids) {
         const it = content.byId(id);
-        if (it) println(`  • ${it.en} — ${it.ko}`);
+        if (it) println(`  • ${it.en} — ${it.meaning}`);
       }
       return;
     }
@@ -105,7 +126,7 @@ async function main() {
       review.markSaved(h, st.current.id);
       review.save(h);
       const it = require('../lib/content').byId(st.current.id);
-      println(`저장됨: ${it ? it.en + ' — ' + it.ko : st.current.id}`);
+      println(`저장됨: ${it ? it.en + " — " + it.meaning : st.current.id}`);
       return;
     }
     case 'saved': {
@@ -116,7 +137,7 @@ async function main() {
       println(`저장한 표현 ${saved.length}개:`);
       for (const [id] of saved) {
         const it = content.byId(id);
-        if (it) println(`  • ${it.en} — ${it.ko}`);
+        if (it) println(`  • ${it.en} — ${it.meaning}`);
       }
       return;
     }
@@ -178,6 +199,7 @@ async function main() {
       println('  adopt | unadopt    자체 statusline이 있는 프로젝트에서 공존 설정/해제');
       println('  on | off           기능 켜기/끄기');
       println('  pause [분] | resume 일시 정지 / 재개');
+      println('  lang [code]        설명 언어 조회/변경 (ko, ja …)');
       println('  config ...         설정 (list/get/set)');
       println('  stats | today      학습 통계 / 오늘 본 표현');
       println('  save | saved       현재 표현 저장 / 저장 목록');

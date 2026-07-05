@@ -2170,6 +2170,330 @@
     "general"
    ],
    "difficulty": 1
+  },
+  {
+   "id": "fe-hydrate-component",
+   "en": "hydrate the component",
+   "ko": "컴포넌트를 하이드레이트하다",
+   "type": "verb-phrase",
+   "nuance": "서버에서 렌더된 HTML에 클라이언트 JS를 붙이는 것",
+   "example": "The component fails to hydrate because the server and client markup differ.",
+   "example_ko": "서버와 클라이언트 마크업이 달라서 컴포넌트 하이드레이션이 실패해요.",
+   "tags": [
+    "frontend"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "fe-memoize-result",
+   "en": "memoize the result",
+   "ko": "결과를 메모이제이션하다",
+   "type": "verb-phrase",
+   "example": "Let's memoize the result so we don't recompute it on every render.",
+   "example_ko": "매 렌더마다 다시 계산하지 않도록 결과를 메모이제이션합시다.",
+   "tags": [
+    "frontend",
+    "perf"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "fe-debounce-handler",
+   "en": "debounce the handler",
+   "ko": "핸들러를 디바운스하다",
+   "type": "verb-phrase",
+   "example": "Debounce the search handler so it doesn't fire on every keystroke.",
+   "example_ko": "검색 핸들러를 디바운스해서 키 입력마다 실행되지 않게 해요.",
+   "tags": [
+    "frontend"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "be-throttle-requests",
+   "en": "throttle the requests",
+   "ko": "요청을 스로틀링하다",
+   "type": "verb-phrase",
+   "example": "We throttle the requests to stay under the API rate limit.",
+   "example_ko": "API 레이트 리밋을 넘지 않도록 요청을 스로틀링해요.",
+   "tags": [
+    "backend",
+    "api"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "be-spin-up-instance",
+   "en": "spin up an instance",
+   "ko": "인스턴스를 띄우다",
+   "type": "phrasal-verb",
+   "example": "Let's spin up a staging instance to reproduce the bug.",
+   "example_ko": "버그 재현을 위해 스테이징 인스턴스를 하나 띄웁시다.",
+   "tags": [
+    "backend",
+    "deploy"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "be-idempotent",
+   "en": "make the operation idempotent",
+   "ko": "연산을 멱등하게 만들다",
+   "type": "collocation",
+   "nuance": "여러 번 실행해도 결과가 같게 (재시도 안전)",
+   "example": "Make the operation idempotent so retries don't create duplicate records.",
+   "example_ko": "재시도해도 중복 레코드가 안 생기게 연산을 멱등하게 만들어요.",
+   "tags": [
+    "backend"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "sec-rotate-secret",
+   "en": "rotate the secret",
+   "ko": "시크릿을 교체하다(로테이션하다)",
+   "type": "verb-phrase",
+   "example": "We should rotate the secret since it may have been exposed in the logs.",
+   "example_ko": "로그에 노출됐을 수 있으니 시크릿을 교체하는 게 좋겠어요.",
+   "tags": [
+    "security"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "sec-token-expired",
+   "en": "the token has expired",
+   "ko": "토큰이 만료되었다",
+   "type": "sentence",
+   "example": "The request fails because the token has expired; refresh it first.",
+   "example_ko": "토큰이 만료돼서 요청이 실패해요. 먼저 갱신하세요.",
+   "tags": [
+    "security",
+    "api"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "sec-prompt-injection",
+   "en": "guard against prompt injection",
+   "ko": "프롬프트 인젝션을 방어하다",
+   "type": "collocation",
+   "example": "We need to guard against prompt injection when we feed user text to the model.",
+   "example_ko": "사용자 텍스트를 모델에 넣을 때 프롬프트 인젝션을 방어해야 해요.",
+   "tags": [
+    "security",
+    "ai"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "perf-warm-cache",
+   "en": "warm up the cache",
+   "ko": "캐시를 미리 데우다(예열하다)",
+   "type": "phrasal-verb",
+   "example": "Warm up the cache on deploy so the first users don't hit a cold path.",
+   "example_ko": "배포 시 캐시를 예열해서 첫 사용자가 콜드 패스를 안 타게 해요.",
+   "tags": [
+    "perf"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "perf-n-plus-one",
+   "en": "an N+1 query problem",
+   "ko": "N+1 쿼리 문제",
+   "type": "term",
+   "nuance": "루프마다 쿼리를 날려 쿼리 수가 폭증하는 성능 문제",
+   "example": "This loop triggers an N+1 query problem; batch it into one query.",
+   "example_ko": "이 루프가 N+1 쿼리 문제를 유발해요. 한 번의 쿼리로 묶읍시다.",
+   "tags": [
+    "perf",
+    "db"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "db-add-index",
+   "en": "add an index on that column",
+   "ko": "그 컬럼에 인덱스를 추가하다",
+   "type": "collocation",
+   "example": "The query is slow because there's no index; let's add an index on that column.",
+   "example_ko": "인덱스가 없어서 쿼리가 느려요. 그 컬럼에 인덱스를 추가합시다.",
+   "tags": [
+    "db",
+    "perf"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "db-run-migration",
+   "en": "run the migration",
+   "ko": "마이그레이션을 실행하다",
+   "type": "verb-phrase",
+   "example": "Run the migration on staging first before touching production.",
+   "example_ko": "프로덕션 건드리기 전에 스테이징에서 먼저 마이그레이션을 실행해요.",
+   "tags": [
+    "db"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "build-flaky",
+   "en": "the build is flaky",
+   "ko": "빌드가 불안정하다(간헐적으로 실패한다)",
+   "type": "sentence",
+   "nuance": "flaky = 똑같은 코드인데 됐다 안 됐다 하는",
+   "example": "The build is flaky — it passes on retry, so it's probably a timing issue.",
+   "example_ko": "빌드가 flaky해요. 재시도하면 통과하니 타이밍 문제 같아요.",
+   "tags": [
+    "build",
+    "test"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "build-tag-release",
+   "en": "tag a release",
+   "ko": "릴리스에 태그를 달다",
+   "type": "verb-phrase",
+   "example": "Tag a release once CI is green on main.",
+   "example_ko": "main에서 CI가 초록이면 릴리스 태그를 답시다.",
+   "tags": [
+    "build",
+    "git"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "cfg-gate-behind-flag",
+   "en": "gate it behind a feature flag",
+   "ko": "기능 플래그 뒤에 숨겨 배포하다",
+   "type": "collocation",
+   "nuance": "완성 전 기능을 플래그로 켰다 껐다 할 수 있게 하는 것",
+   "example": "Let's gate it behind a feature flag so we can turn it off if something breaks.",
+   "example_ko": "문제 생기면 끌 수 있게 기능 플래그 뒤에 숨겨서 배포해요.",
+   "tags": [
+    "config",
+    "deploy"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "inst-pin-version",
+   "en": "pin the version",
+   "ko": "버전을 고정하다(핀하다)",
+   "type": "verb-phrase",
+   "example": "Pin the version so a surprise upgrade doesn't break the build.",
+   "example_ko": "예기치 않은 업그레이드로 빌드가 깨지지 않게 버전을 고정해요.",
+   "tags": [
+    "install",
+    "config"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "ai-hallucinate",
+   "en": "the model hallucinates",
+   "ko": "모델이 환각을 일으킨다(없는 걸 지어낸다)",
+   "type": "sentence",
+   "example": "The model hallucinates an API that doesn't exist, so double-check the output.",
+   "example_ko": "모델이 존재하지 않는 API를 지어내니 출력을 꼭 확인하세요.",
+   "tags": [
+    "ai"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "ai-context-window",
+   "en": "blow past the context window",
+   "ko": "컨텍스트 윈도우를 초과하다",
+   "type": "collocation",
+   "example": "If we paste the whole file we'll blow past the context window.",
+   "example_ko": "파일 전체를 붙여넣으면 컨텍스트 윈도우를 초과해요.",
+   "tags": [
+    "ai"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "api-deprecate-endpoint",
+   "en": "deprecate the endpoint",
+   "ko": "엔드포인트를 폐기 예정으로 표시하다",
+   "type": "verb-phrase",
+   "nuance": "바로 삭제가 아니라 \"곧 없어짐\" 표시 후 유예",
+   "example": "We'll deprecate the old endpoint and remove it next quarter.",
+   "example_ko": "기존 엔드포인트를 deprecate하고 다음 분기에 제거할 거예요.",
+   "tags": [
+    "api"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "col-timebox",
+   "en": "timebox this",
+   "ko": "이 작업에 시간 상한을 두다",
+   "type": "verb-phrase",
+   "example": "Let's timebox this to a day and reassess if we're stuck.",
+   "example_ko": "이건 하루로 시간 상한 두고, 막히면 다시 판단해요.",
+   "tags": [
+    "collab",
+    "planning"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "col-out-of-scope",
+   "en": "that's out of scope for now",
+   "ko": "그건 지금 범위 밖이다",
+   "type": "sentence",
+   "example": "Good idea, but that's out of scope for now — let's file a follow-up.",
+   "example_ko": "좋은 생각이지만 지금은 범위 밖이에요. 후속 이슈로 남겨요.",
+   "tags": [
+    "collab",
+    "planning"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "rv-paper-over",
+   "en": "paper over the bug",
+   "ko": "버그를 임시로 덮다(근본 해결 안 하고)",
+   "type": "phrasal-verb",
+   "nuance": "증상만 가리고 원인은 안 고치는 뉘앙스, 보통 부정적",
+   "example": "This just papers over the bug; we should fix the root cause.",
+   "example_ko": "이건 버그를 임시로 덮는 것뿐이에요. 근본 원인을 고쳐야 해요.",
+   "tags": [
+    "review",
+    "debug"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "dbg-works-on-my-machine",
+   "en": "it works on my machine",
+   "ko": "제 컴퓨터에선 되는데요",
+   "type": "sentence",
+   "nuance": "환경 차이로 인한 문제를 말할 때 쓰는 개발자 관용구(반쯤 농담)",
+   "example": "It works on my machine, so it's probably an environment difference.",
+   "example_ko": "제 컴퓨터에선 되는데요. 아마 환경 차이 같아요.",
+   "tags": [
+    "debug",
+    "collab"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "dbg-tail-the-logs",
+   "en": "tail the logs",
+   "ko": "로그를 실시간으로 지켜보다",
+   "type": "verb-phrase",
+   "example": "Tail the logs while I reproduce it and watch for the error.",
+   "example_ko": "제가 재현하는 동안 로그를 실시간으로 보면서 에러를 지켜봐 주세요.",
+   "tags": [
+    "debug",
+    "error"
+   ],
+   "difficulty": 2
   }
  ]
 }

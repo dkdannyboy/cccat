@@ -5,10 +5,15 @@ them are promises about monetization or timelines.
 
 ## Multi-language explanations
 
-`config.language` is hard-coded to `ko` today. A natural next step is opening
-`lib/render.js`/`lib/content.js` up to additional explanation languages (English explanations
-for Korean speakers learning other things, or the reverse — Japanese/Chinese speakers learning
-English) via per-language content packs rather than translating the existing Korean pack.
+**Partially shipped (v0.2):** `config.language` now supports `ko` and `ja`. `lib/content.js`
+normalizes items into language-neutral fields (`meaning`/`example_trans`/`nuance_text`) and
+loads overlay packs from `content/i18n/<lang>.json`; switch with `cccat lang <code>`. See
+[CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md#explanation-languages-i18n).
+
+Next steps: add Chinese (`zh`) and others via the same overlay mechanism; let non-Korean users
+opt into the promo-free experience automatically (already the case — promo is `ko`-only); and
+consider community-contributed overlays. Note the base English expressions stay shared across
+all languages — only the explanation is translated.
 
 ## More characters, always with a free base character
 

@@ -1,0 +1,1031 @@
+{
+ "version": 1,
+ "language": "ja",
+ "items": [
+  {
+   "id": "git-stage-changes",
+   "meaning": "変更をステージする",
+   "example_trans": "コミットする前に変更をステージします。"
+  },
+  {
+   "id": "git-squash-commits",
+   "meaning": "コミットを1つにまとめる（スカッシュ）",
+   "example_trans": "マージ前にコミットをまとめてもらえますか？"
+  },
+  {
+   "id": "git-rebase-onto-main",
+   "meaning": "mainブランチにリベースする",
+   "example_trans": "最新の変更を取り込むためmainにリベースします。"
+  },
+  {
+   "id": "git-cherry-pick",
+   "meaning": "特定のコミットだけ取り込む（チェリーピック）",
+   "example_trans": "その修正をリリースブランチにチェリーピックしました。"
+  },
+  {
+   "id": "git-force-push",
+   "meaning": "ブランチに強制プッシュする",
+   "example_trans": "共有ブランチに無断で強制プッシュしないでください。"
+  },
+  {
+   "id": "git-revert-commit",
+   "meaning": "コミットを取り消す（リバート）",
+   "example_trans": "ビルドを壊したコミットをリバートします。"
+  },
+  {
+   "id": "git-resolve-merge-conflict",
+   "meaning": "マージコンフリクトを解決する",
+   "example_trans": "マージコンフリクトの解決に1時間かかりました。"
+  },
+  {
+   "id": "git-amend-commit",
+   "meaning": "直前のコミットを修正する（amend）",
+   "example_trans": "新しく足さずに直前のコミットをamendしてください。"
+  },
+  {
+   "id": "git-checkout-new-branch",
+   "meaning": "新しいブランチをチェックアウトする",
+   "example_trans": "機能に着手する前に新しいブランチを切ってください。"
+  },
+  {
+   "id": "git-stash-changes",
+   "meaning": "変更を一時退避する（stash）",
+   "example_trans": "変更をstashして最新を取り込みます。"
+  },
+  {
+   "id": "git-sync-with-upstream",
+   "meaning": "upstreamと同期する",
+   "example_trans": "PRを出す前にforkをupstreamと同期してください。"
+  },
+  {
+   "id": "git-clean-up-history",
+   "meaning": "コミット履歴を整理する",
+   "example_trans": "レビュー依頼の前にコミット履歴を整理できますか？"
+  },
+  {
+   "id": "gh-open-pull-request",
+   "meaning": "プルリクエストを出す",
+   "example_trans": "認証周りの修正でPRを出しました。"
+  },
+  {
+   "id": "gh-request-review-from",
+   "meaning": "誰かにレビューを依頼する",
+   "example_trans": "バックエンドチームにレビューを依頼しました。"
+  },
+  {
+   "id": "gh-leave-comment-on-pr",
+   "meaning": "PRにコメントを残す",
+   "example_trans": "命名についてPRにいくつかコメントを残しました。"
+  },
+  {
+   "id": "gh-merge-the-pr",
+   "meaning": "PRをマージする",
+   "example_trans": "CIが通ったらPRをマージします。"
+  },
+  {
+   "id": "gh-close-the-issue",
+   "meaning": "イシューをクローズする",
+   "example_trans": "これで昨日報告されたイシューが閉じるはずです。"
+  },
+  {
+   "id": "gh-link-issue-to-pr",
+   "meaning": "イシューをPRに紐づける",
+   "example_trans": "自動でクローズされるようイシューをPRに紐づけてください。"
+  },
+  {
+   "id": "gh-tag-someone-in-thread",
+   "meaning": "スレッドで誰かにメンションする",
+   "example_trans": "念のためスレッドであなたをメンションしました。"
+  },
+  {
+   "id": "rv-lgtm-with-nits",
+   "meaning": "細かい指摘以外は問題なし（承認）",
+   "example_trans": "細かい指摘はありますがブロッカーはないのでLGTMです。"
+  },
+  {
+   "id": "rv-nitpick",
+   "meaning": "細かい指摘（をする）",
+   "example_trans": "細かい指摘ですが、この変数名を見直してはどうでしょう。"
+  },
+  {
+   "id": "rv-flag-a-concern",
+   "meaning": "懸念点を指摘する",
+   "example_trans": "ここのエラーハンドリングについて懸念を指摘したいです。"
+  },
+  {
+   "id": "rv-push-back-on-approach",
+   "meaning": "アプローチに異議を唱える",
+   "example_trans": "このアプローチには反対です。APIが複雑になります。"
+  },
+  {
+   "id": "rv-bikeshedding",
+   "meaning": "些末な点で不毛に議論すること",
+   "example_trans": "変数名でこれ以上bikesheddingするのはやめましょう。"
+  },
+  {
+   "id": "rv-rubber-stamp-pr",
+   "meaning": "ろくに見ずに承認してしまう",
+   "example_trans": "ちゃんとテストせずにPRを承認しないでください。"
+  },
+  {
+   "id": "rv-request-changes",
+   "meaning": "変更を要求する（レビュー状態）",
+   "example_trans": "データ検証ロジックに変更をリクエストしました。"
+  },
+  {
+   "id": "rv-call-out-edge-case",
+   "meaning": "エッジケースを指摘する",
+   "example_trans": "空配列のエッジケースを指摘してくれて助かりました。"
+  },
+  {
+   "id": "rv-sanity-check",
+   "meaning": "妥当かどうか軽く確認する",
+   "example_trans": "承認する前に念のため確認しています。"
+  },
+  {
+   "id": "rv-give-once-over",
+   "meaning": "ざっと目を通す",
+   "example_trans": "マージ前にこのPRをざっと見てもらえますか？"
+  },
+  {
+   "id": "rv-looks-good-overall-but",
+   "meaning": "全体的には良いのですが…",
+   "example_trans": "全体的には良いのですが、エラーハンドリングについて質問があります。"
+  },
+  {
+   "id": "rv-defer-to-your-judgment",
+   "meaning": "判断はお任せする",
+   "example_trans": "ここの命名はあなたの判断にお任せします。"
+  },
+  {
+   "id": "dbg-trace-issue-to-source",
+   "meaning": "問題の原因を根本まで遡って追う",
+   "example_trans": "トークンが生成される箇所まで問題を遡って追います。"
+  },
+  {
+   "id": "dbg-rule-out-possibility",
+   "meaning": "ある可能性を除外する",
+   "example_trans": "まずネットワークの問題を除外しましょう。"
+  },
+  {
+   "id": "dbg-narrow-down-cause",
+   "meaning": "原因の範囲を絞り込む",
+   "example_trans": "原因を設定の不一致まで絞り込みました。"
+  },
+  {
+   "id": "dbg-reproduce-the-bug",
+   "meaning": "バグを再現する",
+   "example_trans": "自分の環境ではバグを再現できません。"
+  },
+  {
+   "id": "dbg-intermittent",
+   "meaning": "断続的に発生する",
+   "example_trans": "この失敗は断続的なので捕まえるのが難しいです。"
+  },
+  {
+   "id": "dbg-suspect-race-condition",
+   "meaning": "競合状態（レースコンディション）が疑われる",
+   "example_trans": "この2つのスレッド間で競合状態を疑っています。"
+  },
+  {
+   "id": "dbg-dig-into-logs",
+   "meaning": "ログを深く調べる",
+   "example_trans": "ログを深掘りしてタイムアウトエラーを見つけました。"
+  },
+  {
+   "id": "dbg-add-logging",
+   "meaning": "状況把握のためログを追加する",
+   "example_trans": "その呼び出しの前に状況把握のログを足しましょう。"
+  },
+  {
+   "id": "dbg-red-herring",
+   "meaning": "誤った手がかり、見当違い",
+   "example_trans": "あのスタックトレースは見当違いで、真のバグは別でした。"
+  },
+  {
+   "id": "dbg-symptom-not-root-cause",
+   "meaning": "これは症状であって根本原因ではない",
+   "example_trans": "クラッシュは症状で、真の原因は上流にあります。"
+  },
+  {
+   "id": "dbg-step-through-code",
+   "meaning": "コードを1行ずつ追って実行する",
+   "example_trans": "デバッガでコードを1行ずつ追って見つけました。"
+  },
+  {
+   "id": "dbg-isolate-the-problem",
+   "meaning": "問題を切り分ける",
+   "example_trans": "問題を決済モジュールに切り分けました。"
+  },
+  {
+   "id": "dbg-only-happens-under-load",
+   "meaning": "負荷がかかった時だけ発生する",
+   "example_trans": "負荷時のみ発生するのでローカルでの再現が難しいです。"
+  },
+  {
+   "id": "dbg-breakpoint-on-it",
+   "meaning": "ブレークポイントを張ってみる",
+   "example_trans": "ブレークポイントを張って値を確認してみます。"
+  },
+  {
+   "id": "dbg-its-flaky",
+   "meaning": "不安定でたまに失敗する",
+   "example_trans": "このテストはflakyで、10回に1回くらい落ちます。"
+  },
+  {
+   "id": "tst-flaky-test",
+   "meaning": "不安定な（たまに失敗する）テスト",
+   "example_trans": "CIパイプラインにflakyなテストがあります。"
+  },
+  {
+   "id": "tst-cover-edge-case",
+   "meaning": "エッジケースをテストでカバーする",
+   "example_trans": "リストが空のエッジケースも必ずカバーしてください。"
+  },
+  {
+   "id": "tst-write-regression-test",
+   "meaning": "リグレッションテストを書く",
+   "example_trans": "このバグが再発しないようリグレッションテストを書きました。"
+  },
+  {
+   "id": "tst-mock-out-dependency",
+   "meaning": "依存をモックに置き換える",
+   "example_trans": "ユニットテストではDB依存をモックにしてください。"
+  },
+  {
+   "id": "tst-pass-locally-fail-ci",
+   "meaning": "ローカルでは通るがCIで落ちる",
+   "example_trans": "ローカルでは通るのにCIで落ちます。おそらく環境差です。"
+  },
+  {
+   "id": "tst-bump-the-coverage",
+   "meaning": "カバレッジを少し上げる",
+   "example_trans": "決済モジュールのカバレッジを上げましょう。"
+  },
+  {
+   "id": "tst-brittle-test",
+   "meaning": "このテストは壊れやすい",
+   "example_trans": "このテストは壊れやすく、些細なリファクタで落ちます。"
+  },
+  {
+   "id": "tst-sanity-test-change",
+   "meaning": "変更をざっと動作確認する",
+   "example_trans": "プッシュ前にローカルで変更をざっと確認してください。"
+  },
+  {
+   "id": "tst-run-the-test-suite",
+   "meaning": "テストスイートを回す",
+   "example_trans": "PRを出す前に全テストスイートを回してください。"
+  },
+  {
+   "id": "tst-stub-out-api-call",
+   "meaning": "API呼び出しをスタブに置き換える",
+   "example_trans": "テストがネットワークに出ないようAPI呼び出しをスタブにします。"
+  },
+  {
+   "id": "rf-tighten-up-validation",
+   "meaning": "検証ロジックをより厳しくする",
+   "example_trans": "入力フォームの検証をもっと厳しくしましょう。"
+  },
+  {
+   "id": "rf-clean-up-the-code",
+   "meaning": "コードを整理する",
+   "example_trans": "マージ前にコードを整理します。"
+  },
+  {
+   "id": "rf-extract-into-helper",
+   "meaning": "ヘルパー関数に切り出す",
+   "example_trans": "再利用できるようこれをヘルパー関数に切り出しましょう。"
+  },
+  {
+   "id": "rf-needs-a-rewrite",
+   "meaning": "これは書き直しが必要",
+   "example_trans": "正直このモジュールはパッチではなく書き直しが必要です。"
+  },
+  {
+   "id": "rf-decouple-x-from-y",
+   "meaning": "XをYから切り離す",
+   "example_trans": "課金ロジックをユーザーサービスから切り離すべきです。"
+  },
+  {
+   "id": "rf-simplify-the-logic",
+   "meaning": "ロジックを単純化する",
+   "example_trans": "早期リターンでここのロジックを単純化できますか？"
+  },
+  {
+   "id": "rf-over-engineered",
+   "meaning": "これは過剰設計だ",
+   "example_trans": "目的の割にこれは過剰設計に感じます。"
+  },
+  {
+   "id": "rf-consolidate-duplicate-logic",
+   "meaning": "重複ロジックを1つにまとめる",
+   "example_trans": "重複ロジックを共通ユーティリティにまとめましょう。"
+  },
+  {
+   "id": "rf-pay-down-tech-debt",
+   "meaning": "技術的負債を少しずつ返す",
+   "example_trans": "時間を取って技術的負債を返していくべきです。"
+  },
+  {
+   "id": "rf-could-use-a-refactor",
+   "meaning": "これは少しリファクタが必要そう",
+   "example_trans": "この関数は色々やりすぎで、リファクタが必要そうです。"
+  },
+  {
+   "id": "dep-ship-a-fix",
+   "meaning": "修正をリリースする",
+   "example_trans": "今朝ログインバグの修正をリリースしました。"
+  },
+  {
+   "id": "dep-roll-back-deployment",
+   "meaning": "デプロイをロールバックする",
+   "example_trans": "エラー急増を受けてデプロイをロールバックしました。"
+  },
+  {
+   "id": "dep-push-to-production",
+   "meaning": "本番にデプロイする",
+   "example_trans": "金曜の午後に本番デプロイしないでください。"
+  },
+  {
+   "id": "dep-behind-feature-flag",
+   "meaning": "フィーチャーフラグの裏でデプロイする",
+   "example_trans": "まずはフィーチャーフラグの裏でデプロイしましょう。"
+  },
+  {
+   "id": "dep-canary-release",
+   "meaning": "カナリアリリースをする",
+   "example_trans": "まず5%のトラフィックにカナリアリリースします。"
+  },
+  {
+   "id": "dep-ready-to-go-live",
+   "meaning": "これは本番投入できる状態だ",
+   "example_trans": "QAが承認したので本番投入できる状態です。"
+  },
+  {
+   "id": "dep-cut-a-release",
+   "meaning": "リリースを切る",
+   "example_trans": "スプリントの最後にリリースを切ります。"
+  },
+  {
+   "id": "dep-hotfix-in-prod",
+   "meaning": "本番の問題を緊急修正する",
+   "example_trans": "20分以内に本番の問題を緊急修正しました。"
+  },
+  {
+   "id": "api-deprecate-old-endpoint",
+   "meaning": "既存エンドポイントを非推奨にする",
+   "example_trans": "来四半期に既存エンドポイントを非推奨にします。"
+  },
+  {
+   "id": "api-version-the-api",
+   "meaning": "APIにバージョンを付ける",
+   "example_trans": "破壊的変更の前にAPIをバージョニングすべきです。"
+  },
+  {
+   "id": "api-endpoint-rate-limited",
+   "meaning": "このエンドポイントはレート制限がある",
+   "example_trans": "このエンドポイントは毎分100リクエストに制限されています。"
+  },
+  {
+   "id": "api-payload-malformed",
+   "meaning": "リクエストの形式が不正だ",
+   "example_trans": "ペイロードが不正でリクエストが失敗しました。"
+  },
+  {
+   "id": "api-expose-new-endpoint",
+   "meaning": "新しいエンドポイントを提供する",
+   "example_trans": "一括更新用に新しいエンドポイントを用意する必要があります。"
+  },
+  {
+   "id": "api-idempotent-call",
+   "meaning": "この呼び出しは冪等だ",
+   "example_trans": "リトライが安全なようこのエンドポイントを冪等にしてください。"
+  },
+  {
+   "id": "api-response-schema-changed",
+   "meaning": "レスポンスのスキーマが変わった",
+   "example_trans": "レスポンススキーマが変わってクライアントが壊れました。"
+  },
+  {
+   "id": "api-paginate-results",
+   "meaning": "結果をページネーションする",
+   "example_trans": "全件返さず結果をページネーションすべきです。"
+  },
+  {
+   "id": "db-backfill-the-data",
+   "meaning": "過去データを埋め戻す（バックフィル）",
+   "example_trans": "6月以前に作られたユーザーのデータを埋め戻す必要があります。"
+  },
+  {
+   "id": "db-run-a-migration",
+   "meaning": "マイグレーションを実行する",
+   "example_trans": "新スキーマをデプロイする前にマイグレーションを実行してください。"
+  },
+  {
+   "id": "db-query-is-slow",
+   "meaning": "このクエリは遅い",
+   "example_trans": "フルテーブルスキャンのためこのクエリは遅いです。"
+  },
+  {
+   "id": "db-add-an-index",
+   "meaning": "インデックスを追加する",
+   "example_trans": "emailカラムにインデックスを追加すべきです。"
+  },
+  {
+   "id": "db-table-getting-bloated",
+   "meaning": "このテーブルが肥大化している",
+   "example_trans": "使われないカラムでこのテーブルが肥大化しています。"
+  },
+  {
+   "id": "db-lock-contention",
+   "meaning": "ロック競合で遅延が起きている",
+   "example_trans": "書き込み負荷が高いとその行のロック競合で遅延します。"
+  },
+  {
+   "id": "fe-re-renders-too-often",
+   "meaning": "このコンポーネントは再レンダーが多すぎる",
+   "example_trans": "インライン関数のせいで再レンダーが多すぎます。"
+  },
+  {
+   "id": "fe-layout-broken-on-mobile",
+   "meaning": "モバイルでレイアウトが崩れる",
+   "example_trans": "375px未満のモバイルでレイアウトが崩れます。"
+  },
+  {
+   "id": "fe-debounce-the-input",
+   "meaning": "入力をデバウンスする",
+   "example_trans": "キー入力ごとにAPIを呼ばないよう入力をデバウンスします。"
+  },
+  {
+   "id": "fe-causing-layout-shift",
+   "meaning": "これがレイアウトシフトを起こしている",
+   "example_trans": "遅延読み込み画像がレイアウトシフトを起こしています。"
+  },
+  {
+   "id": "fe-hydrate-the-state",
+   "meaning": "（SSR後に）状態をハイドレーションする",
+   "example_trans": "SSRの後、クライアントで状態をハイドレーションします。"
+  },
+  {
+   "id": "be-endpoint-times-out-under-load",
+   "meaning": "このエンドポイントは負荷時にタイムアウトする",
+   "example_trans": "ピーク時にこのエンドポイントはタイムアウトします。"
+  },
+  {
+   "id": "be-spin-up-a-worker",
+   "meaning": "ワーカーを新たに立ち上げる",
+   "example_trans": "キューの滞留を捌くためワーカーを追加で立ち上げました。"
+  },
+  {
+   "id": "be-single-point-of-failure",
+   "meaning": "これは単一障害点だ",
+   "example_trans": "単一のDBインスタンスが単一障害点になっています。"
+  },
+  {
+   "id": "be-queue-the-job",
+   "meaning": "ジョブをキューに入れる",
+   "example_trans": "同期処理せずジョブをキューに入れてください。"
+  },
+  {
+   "id": "be-service-is-stateless",
+   "meaning": "このサービスはステートレスだ",
+   "example_trans": "水平スケールできるようこのサービスはステートレスに保ちます。"
+  },
+  {
+   "id": "sec-sanitize-the-input",
+   "meaning": "入力値をサニタイズする",
+   "example_trans": "ページに描画する前に必ず入力値をサニタイズしてください。"
+  },
+  {
+   "id": "sec-potential-attack-vector",
+   "meaning": "これは潜在的な攻撃経路だ",
+   "example_trans": "この未検証フィールドは潜在的な攻撃経路です。"
+  },
+  {
+   "id": "sec-rotate-the-credentials",
+   "meaning": "認証情報をローテーションする",
+   "example_trans": "インシデント後に認証情報をローテーションすべきです。"
+  },
+  {
+   "id": "sec-exposed-to-injection",
+   "meaning": "これはインジェクションに晒されている",
+   "example_trans": "この生クエリはSQLインジェクションに晒されています。"
+  },
+  {
+   "id": "sec-lock-down-permissions",
+   "meaning": "権限を厳しく制限する",
+   "example_trans": "そのS3バケットの権限を厳しく制限しましょう。"
+  },
+  {
+   "id": "perf-a-bottleneck",
+   "meaning": "これがボトルネックだ",
+   "example_trans": "このフローではDB呼び出しがボトルネックです。"
+  },
+  {
+   "id": "perf-profile-the-code",
+   "meaning": "コードをプロファイリングする",
+   "example_trans": "どこで時間を食っているかコードをプロファイリングしましょう。"
+  },
+  {
+   "id": "perf-o-n-squared",
+   "meaning": "これはO(n^2)だ",
+   "example_trans": "このネストしたループはO(n^2)でスケールしません。"
+  },
+  {
+   "id": "perf-cache-the-result",
+   "meaning": "結果をキャッシュする",
+   "example_trans": "めったに変わらないので結果をキャッシュすべきです。"
+  },
+  {
+   "id": "perf-eating-memory",
+   "meaning": "これがメモリを食っている",
+   "example_trans": "上限のないキャッシュが時間とともにメモリを食っています。"
+  },
+  {
+   "id": "doc-document-the-api",
+   "meaning": "APIをドキュメント化する",
+   "example_trans": "リリース前にAPIをドキュメント化してください。"
+  },
+  {
+   "id": "doc-update-the-readme",
+   "meaning": "READMEを更新する",
+   "example_trans": "新しいセットアップ手順でREADMEの更新を忘れずに。"
+  },
+  {
+   "id": "doc-add-inline-comments",
+   "meaning": "インラインコメントを追加する",
+   "example_trans": "ややこしい部分に説明のコメントを足してください。"
+  },
+  {
+   "id": "doc-needs-better-documentation",
+   "meaning": "これはもっと文書化が必要だ",
+   "example_trans": "この設定オプションはもっと文書化が必要です。"
+  },
+  {
+   "id": "doc-write-up-the-decision",
+   "meaning": "決定事項をまとめて文書に残す",
+   "example_trans": "アーキテクチャ変更の決定をまとめてもらえますか？"
+  },
+  {
+   "id": "doc-keep-docs-in-sync",
+   "meaning": "ドキュメントを最新に保つ",
+   "example_trans": "コード変更に合わせてドキュメントを最新に保つべきです。"
+  },
+  {
+   "id": "doc-leave-a-todo",
+   "meaning": "TODOを残す",
+   "example_trans": "後回しにするエラーハンドリングにTODOを残しました。"
+  },
+  {
+   "id": "col-loop-someone-in",
+   "meaning": "誰かを話に加える（参加させる）",
+   "example_trans": "この決定にデザインチームを加えましょう。"
+  },
+  {
+   "id": "col-blocked-on-x",
+   "meaning": "Xのせいで進めない",
+   "example_trans": "APIキー待ちで進めません。誰か用意できますか？"
+  },
+  {
+   "id": "col-for-what-its-worth",
+   "meaning": "参考までに言うと",
+   "example_trans": "参考までに、私は選択肢Bの方がシンプルだと思います。"
+  },
+  {
+   "id": "col-off-the-top-of-my-head",
+   "meaning": "正確ではないが今思いつく限りでは",
+   "example_trans": "ざっと思いつく限りでは、2スプリントくらいかかりそうです。"
+  },
+  {
+   "id": "col-lets-sync-up",
+   "meaning": "別途時間を取ってすり合わせよう",
+   "example_trans": "明日の朝、移行計画についてすり合わせましょう。"
+  },
+  {
+   "id": "col-circle-back-on-this",
+   "meaning": "あとでこの話に戻る",
+   "example_trans": "デモのあとでこの件に戻りましょう。"
+  },
+  {
+   "id": "col-take-this-offline",
+   "meaning": "この話は別途やろう",
+   "example_trans": "細かくなってきたので別途話しましょう。"
+  },
+  {
+   "id": "col-keep-me-in-the-loop",
+   "meaning": "私にも共有し続けて",
+   "example_trans": "締め切りの変更があれば私にも共有してください。"
+  },
+  {
+   "id": "col-get-on-same-page",
+   "meaning": "認識をそろえる（合意する）",
+   "example_trans": "コードを書き始める前に認識をそろえましょう。"
+  },
+  {
+   "id": "col-push-back-deadline",
+   "meaning": "締め切りを後ろ倒しにする",
+   "example_trans": "締め切りを数日後ろ倒しにする必要があるかもしれません。"
+  },
+  {
+   "id": "col-ill-take-a-stab-at-it",
+   "meaning": "とりあえずやってみます",
+   "example_trans": "とりあえずやってみて、明日ドラフトを共有します。"
+  },
+  {
+   "id": "col-lets-table-this",
+   "meaning": "これは一旦保留にしよう",
+   "example_trans": "これは一旦保留にしてローンチに集中しましょう。"
+  },
+  {
+   "id": "col-ping-me-when-done",
+   "meaning": "終わったら連絡して",
+   "example_trans": "移行スクリプトが終わったら連絡してください。"
+  },
+  {
+   "id": "col-ill-follow-up",
+   "meaning": "私が後ほど対応します",
+   "example_trans": "価格についてベンダーに後ほど確認します。"
+  },
+  {
+   "id": "col-flag-this-for-later",
+   "meaning": "これは後回し用に印を付けておく",
+   "example_trans": "急ぎではないので後回し用に印を付けておきましょう。"
+  },
+  {
+   "id": "col-touch-base",
+   "meaning": "近況や進捗を軽く確認する",
+   "example_trans": "週の終わりに軽く進捗を確認しましょう。"
+  },
+  {
+   "id": "pl-break-into-smaller-tasks",
+   "meaning": "より小さなタスクに分割する",
+   "example_trans": "週次で出せるよう、より小さなタスクに分割しましょう。"
+  },
+  {
+   "id": "pl-scope-out-the-work",
+   "meaning": "作業範囲を見積もる",
+   "example_trans": "日程を約束する前に作業範囲を見積もってもらえますか？"
+  },
+  {
+   "id": "pl-out-of-scope",
+   "meaning": "これは今回の範囲外だ",
+   "example_trans": "ローカライズはこのリリースの範囲外です。"
+  },
+  {
+   "id": "pl-prioritize-the-backlog",
+   "meaning": "バックログの優先順位を付ける",
+   "example_trans": "スプリント計画の前にバックログの優先順位を付ける必要があります。"
+  },
+  {
+   "id": "pl-stretch-goal",
+   "meaning": "これは余裕があれば狙う目標だ",
+   "example_trans": "ダッシュボード刷新はこのスプリントのストレッチ目標です。"
+  },
+  {
+   "id": "pl-front-load-risky-work",
+   "meaning": "リスクの高い作業を前倒しする",
+   "example_trans": "問題を早く見つけるためリスクの高い作業を前倒ししましょう。"
+  },
+  {
+   "id": "pl-nice-to-have-not-must-have",
+   "meaning": "あれば良いが必須ではない",
+   "example_trans": "ダークモードはローンチには必須ではなく、あれば良い程度です。"
+  },
+  {
+   "id": "pl-de-scope-this-feature",
+   "meaning": "この機能を今回の範囲から外す",
+   "example_trans": "締め切りに間に合わせるためこの機能を範囲から外すべきです。"
+  },
+  {
+   "id": "ai-hallucinate-a-fact",
+   "meaning": "（モデルが）事実でない内容をでっち上げる",
+   "example_trans": "モデルがドキュメントに存在しない事実をでっち上げました。"
+  },
+  {
+   "id": "ai-prompt-the-model",
+   "meaning": "モデルにプロンプトを与える",
+   "example_trans": "もっと文脈を与えてモデルにプロンプトしてみてください。"
+  },
+  {
+   "id": "ai-fine-tune-the-model",
+   "meaning": "モデルをファインチューニングする",
+   "example_trans": "自社のサポートチケットでモデルをファインチューニングしました。"
+  },
+  {
+   "id": "ai-false-positive-from-linter",
+   "meaning": "これはリンターの誤検出だ",
+   "example_trans": "あの警告はリンターの誤検出で、無視して問題ありません。"
+  },
+  {
+   "id": "ai-the-model-drifted",
+   "meaning": "モデルの傾向が時間とともにずれた",
+   "example_trans": "入力分布を変えた後、モデルの精度がずれました。"
+  },
+  {
+   "id": "ai-guardrail-the-output",
+   "meaning": "出力にガードレールを設ける",
+   "example_trans": "PIIを漏らさないよう出力にガードレールを設ける必要があります。"
+  },
+  {
+   "id": "ai-human-in-the-loop",
+   "meaning": "これは人の確認が必要だ",
+   "example_trans": "顧客に見えるものは必ず人の確認を挟みます。"
+  },
+  {
+   "id": "err-throw-an-exception",
+   "meaning": "例外を投げる",
+   "example_trans": "入力が不正なら例外を投げてください。"
+  },
+  {
+   "id": "err-swallow-the-error",
+   "meaning": "エラーを握りつぶす",
+   "example_trans": "このcatchはエラーを黙って握りつぶしています。"
+  },
+  {
+   "id": "err-fails-silently",
+   "meaning": "これは何も通知せず静かに失敗する",
+   "example_trans": "リトライ処理が静かに失敗して誰も気づきませんでした。"
+  },
+  {
+   "id": "err-handle-the-edge-case",
+   "meaning": "エッジケースを処理する",
+   "example_trans": "配列が空のエッジケースを処理し忘れていました。"
+  },
+  {
+   "id": "err-crashes-on-null-input",
+   "meaning": "これはnull入力で落ちる",
+   "example_trans": "パーサはnull入力でエラーを返さず落ちます。"
+  },
+  {
+   "id": "err-surface-error-to-user",
+   "meaning": "エラーをユーザーに見せる",
+   "example_trans": "静かに失敗させず、エラーをユーザーに見せるべきです。"
+  },
+  {
+   "id": "err-silent-failure",
+   "meaning": "これは気づかれない静かな失敗だ",
+   "example_trans": "静かな失敗は誰も気づかないぶんクラッシュより厄介です。"
+  },
+  {
+   "id": "bld-build-is-broken",
+   "meaning": "ビルドが壊れている",
+   "example_trans": "mainのビルドが壊れているのでまだpullしないで。"
+  },
+  {
+   "id": "bld-doesnt-compile",
+   "meaning": "これはコンパイルが通らない",
+   "example_trans": "マージ後、このブランチはコンパイルが通りません。"
+  },
+  {
+   "id": "bld-clean-build",
+   "meaning": "キャッシュなしで一からビルドすること",
+   "example_trans": "バグ報告の前にクリーンビルドを試してください。"
+  },
+  {
+   "id": "bld-bump-dependency-version",
+   "meaning": "依存のバージョンを上げる",
+   "example_trans": "脆弱性対応のため依存のバージョンを上げるべきです。"
+  },
+  {
+   "id": "ins-install-the-dependencies",
+   "meaning": "依存をインストールする",
+   "example_trans": "アプリを動かす前に依存をインストールしてください。"
+  },
+  {
+   "id": "ins-requires-specific-version",
+   "meaning": "これは特定のバージョンが必要だ",
+   "example_trans": "このパッケージは特定バージョンのNodeが必要です。"
+  },
+  {
+   "id": "ins-set-up-the-environment",
+   "meaning": "環境をセットアップする",
+   "example_trans": "ローカル環境のセットアップに少し時間がかかりました。"
+  },
+  {
+   "id": "fil-rename-the-file",
+   "meaning": "ファイル名を変更する",
+   "example_trans": "コンポーネント名に合わせてファイル名を変えましょう。"
+  },
+  {
+   "id": "fil-file-is-too-large",
+   "meaning": "このファイルは大きすぎる",
+   "example_trans": "このファイルは大きすぎるので分割しましょう。"
+  },
+  {
+   "id": "fil-split-into-multiple-files",
+   "meaning": "これを複数ファイルに分ける",
+   "example_trans": "責務ごとに複数ファイルに分けましょう。"
+  },
+  {
+   "id": "fil-move-to-shared-location",
+   "meaning": "これを共通の場所に移す",
+   "example_trans": "両アプリで使えるようこのユーティリティを共通の場所に移します。"
+  },
+  {
+   "id": "sea-grep-for-usage",
+   "meaning": "使用箇所をgrepで探す",
+   "example_trans": "その関数を消す前に使用箇所をgrepしてください。"
+  },
+  {
+   "id": "sea-search-across-codebase",
+   "meaning": "コードベース全体を検索する",
+   "example_trans": "ハードコードされたURLをコードベース全体で検索しました。"
+  },
+  {
+   "id": "sea-find-all-references",
+   "meaning": "すべての参照を探す",
+   "example_trans": "このメソッドをリネームする前に全参照を探してください。"
+  },
+  {
+   "id": "cfg-tweak-the-config",
+   "meaning": "設定を少し調整する",
+   "example_trans": "タイムアウトを延ばすため設定を少し調整してください。"
+  },
+  {
+   "id": "cfg-this-is-hardcoded",
+   "meaning": "これはハードコードされている",
+   "example_trans": "このURLはハードコードなので設定に移すべきです。"
+  },
+  {
+   "id": "cfg-externalize-the-configuration",
+   "meaning": "設定を外部に分離する",
+   "example_trans": "変更のたびに再デプロイしなくて済むよう設定を外部化しましょう。"
+  },
+  {
+   "id": "gen-nice-to-have",
+   "meaning": "必須ではなく「あれば良い」程度に扱う",
+   "example_trans": "オフライン対応はv1では「あれば良い」程度に扱いましょう。"
+  },
+  {
+   "id": "gen-at-end-of-day",
+   "meaning": "結局のところ、突き詰めれば",
+   "example_trans": "結局のところ、何も出さないより何か出す方が良いです。"
+  },
+  {
+   "id": "gen-call-it-a-day",
+   "meaning": "今日はここまでにする",
+   "example_trans": "今日はここまでにして、明日続きをやりましょう。"
+  },
+  {
+   "id": "gen-stopgap-solution",
+   "meaning": "これは一時しのぎだ",
+   "example_trans": "これはパイプラインを再設計するまでの一時しのぎです。"
+  },
+  {
+   "id": "gen-future-proof",
+   "meaning": "これは将来にも耐えられる作りだ",
+   "example_trans": "将来にも耐えられるようスキーマを設計しました。"
+  },
+  {
+   "id": "gen-quick-win",
+   "meaning": "これは少ない労力で得る成果だ",
+   "example_trans": "このキャッシュ追加は性能面のクイックウィンです。"
+  },
+  {
+   "id": "gen-low-hanging-fruit",
+   "meaning": "これは簡単に片付く手近なものだ",
+   "example_trans": "難しいものの前に手近なところから片付けましょう。"
+  },
+  {
+   "id": "gen-moving-target",
+   "meaning": "これは要件が変わり続ける目標だ",
+   "example_trans": "要件が動く標的なので設計は柔軟に保ちましょう。"
+  },
+  {
+   "id": "gen-rabbit-hole",
+   "meaning": "これは掘るほど深みにはまる問題だ",
+   "example_trans": "デモ直前にその深みにはまらないでください。"
+  },
+  {
+   "id": "gen-keep-it-simple",
+   "meaning": "シンプルに保つ",
+   "example_trans": "最初のバージョンはシンプルに保って後で改善しましょう。"
+  },
+  {
+   "id": "fe-hydrate-component",
+   "meaning": "コンポーネントをハイドレートする",
+   "example_trans": "サーバーとクライアントのマークアップが違うためハイドレートに失敗します。"
+  },
+  {
+   "id": "fe-memoize-result",
+   "meaning": "結果をメモ化する",
+   "example_trans": "毎回再計算しないよう結果をメモ化しましょう。"
+  },
+  {
+   "id": "fe-debounce-handler",
+   "meaning": "ハンドラをデバウンスする",
+   "example_trans": "キー入力ごとに走らないよう検索ハンドラをデバウンスします。"
+  },
+  {
+   "id": "be-throttle-requests",
+   "meaning": "リクエストをスロットリングする",
+   "example_trans": "APIのレート制限を超えないようリクエストをスロットリングします。"
+  },
+  {
+   "id": "be-spin-up-instance",
+   "meaning": "インスタンスを立ち上げる",
+   "example_trans": "バグ再現のためステージングのインスタンスを立ち上げましょう。"
+  },
+  {
+   "id": "be-idempotent",
+   "meaning": "処理を冪等にする",
+   "example_trans": "リトライで重複レコードを作らないよう処理を冪等にします。"
+  },
+  {
+   "id": "sec-rotate-secret",
+   "meaning": "シークレットをローテーションする",
+   "example_trans": "ログに露出した可能性があるのでシークレットを交換すべきです。"
+  },
+  {
+   "id": "sec-token-expired",
+   "meaning": "トークンが期限切れだ",
+   "example_trans": "トークンが期限切れでリクエストが失敗します。先に更新してください。"
+  },
+  {
+   "id": "sec-prompt-injection",
+   "meaning": "プロンプトインジェクションを防ぐ",
+   "example_trans": "ユーザーテキストをモデルに渡す際はプロンプトインジェクションを防ぐ必要があります。"
+  },
+  {
+   "id": "perf-warm-cache",
+   "meaning": "キャッシュを事前に温める",
+   "example_trans": "デプロイ時にキャッシュを温め、最初のユーザーがコールドパスを踏まないようにします。"
+  },
+  {
+   "id": "perf-n-plus-one",
+   "meaning": "N+1クエリ問題",
+   "example_trans": "このループがN+1クエリ問題を起こすので1つのクエリにまとめましょう。"
+  },
+  {
+   "id": "db-add-index",
+   "meaning": "そのカラムにインデックスを追加する",
+   "example_trans": "インデックスが無くて遅いので、そのカラムにインデックスを追加しましょう。"
+  },
+  {
+   "id": "db-run-migration",
+   "meaning": "マイグレーションを実行する",
+   "example_trans": "本番を触る前にステージングでマイグレーションを実行してください。"
+  },
+  {
+   "id": "build-flaky",
+   "meaning": "ビルドが不安定だ（たまに失敗する）",
+   "example_trans": "ビルドがflakyで、再試行すると通るのでタイミングの問題っぽいです。"
+  },
+  {
+   "id": "build-tag-release",
+   "meaning": "リリースにタグを打つ",
+   "example_trans": "mainでCIが通ったらリリースにタグを打ちましょう。"
+  },
+  {
+   "id": "cfg-gate-behind-flag",
+   "meaning": "フィーチャーフラグの裏に隠してデプロイする",
+   "example_trans": "問題があれば切れるようフィーチャーフラグの裏に隠して出しましょう。"
+  },
+  {
+   "id": "inst-pin-version",
+   "meaning": "バージョンを固定する（ピンする）",
+   "example_trans": "不意のアップグレードでビルドが壊れないようバージョンを固定します。"
+  },
+  {
+   "id": "ai-hallucinate",
+   "meaning": "モデルが幻覚を起こす（無いものをでっち上げる）",
+   "example_trans": "モデルが存在しないAPIをでっち上げるので出力を必ず確認してください。"
+  },
+  {
+   "id": "ai-context-window",
+   "meaning": "コンテキストウィンドウを超える",
+   "example_trans": "ファイル全体を貼るとコンテキストウィンドウを超えてしまいます。"
+  },
+  {
+   "id": "api-deprecate-endpoint",
+   "meaning": "エンドポイントを非推奨にする",
+   "example_trans": "既存エンドポイントを非推奨にして来四半期に削除します。"
+  },
+  {
+   "id": "col-timebox",
+   "meaning": "この作業に時間の上限を設ける",
+   "example_trans": "これは1日で区切って、詰まったら再判断しましょう。"
+  },
+  {
+   "id": "col-out-of-scope",
+   "meaning": "それは今回の範囲外だ",
+   "example_trans": "良い案ですが今回は範囲外なので、フォローアップを起票しましょう。"
+  },
+  {
+   "id": "rv-paper-over",
+   "meaning": "バグを（根本解決せず）一時的に覆い隠す",
+   "example_trans": "これはバグを覆い隠すだけです。根本原因を直すべきです。"
+  },
+  {
+   "id": "dbg-works-on-my-machine",
+   "meaning": "自分の環境では動くのですが",
+   "example_trans": "自分の環境では動くので、たぶん環境差だと思います。"
+  },
+  {
+   "id": "dbg-tail-the-logs",
+   "meaning": "ログをリアルタイムで追う",
+   "example_trans": "再現する間、ログをリアルタイムで追ってエラーを見張ってください。"
+  }
+ ]
+}
