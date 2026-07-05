@@ -4,7 +4,7 @@
 
 **Claude Code가 생각하는 동안, 상태 표시줄에서 영어 한 스푼.**
 
-[English](README.md) · **한국어**
+[English](README.md) · **한국어** · [日本語](README.ja.md)
 
 [![test](https://github.com/dkdannyboy/cccat/actions/workflows/test.yml/badge.svg)](https://github.com/dkdannyboy/cccat/actions/workflows/test.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)

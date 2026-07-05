@@ -4,7 +4,7 @@
 
 **A spoonful of English in your status line, while Claude Code thinks.**
 
-**English** · [한국어](README.ko.md)
+**English** · [한국어](README.ko.md) · [日本語](README.ja.md)
 
 [![test](https://github.com/dkdannyboy/cccat/actions/workflows/test.yml/badge.svg)](https://github.com/dkdannyboy/cccat/actions/workflows/test.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
