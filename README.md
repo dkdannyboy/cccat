@@ -23,20 +23,21 @@ a practical English expression from real dev work, explained **in your own langu
 Explanations currently ship in **Korean** and **Japanese**, and the design makes adding more
 languages a matter of dropping in one overlay file — the English expressions stay shared.
 
-```text
-(=^･ω･^=) idle          clean build — 캐시 없이 처음부터 다시 빌드하는 것
-                        "Try a clean build before you file a bug."
+<table>
+<tr>
+<td align="center"><b>English expression + Korean explanation</b></td>
+<td align="center"><b>English expression + Japanese explanation</b></td>
+</tr>
+<tr>
+<td><img src="assets/ko-statusline.png" alt="cccat status line with Korean explanations" width="100%"></td>
+<td><img src="assets/ja-statusline.png" alt="cccat status line with Japanese explanations" width="100%"></td>
+</tr>
+</table>
 
-⠙ (=˘ω˘=)? thinking      sanitize the input — 入力値をサニタイズする
-                        "Always sanitize the input before rendering it on the page."
-
-∩(=^･ω･^=)∩ success!     cover the edge case — 엣지 케이스를 테스트로 커버하다
-                        "Make sure to cover the edge case where the list is empty."  · 5 today
-```
-
-<sub>Captured in a real Claude Code 2.1.201 / macOS / tmux session — see [docs/VERIFICATION.md](docs/VERIFICATION.md).
-The cat's face and spinner animate in real time as Claude Code's activity changes. The two lines
-above show Korean and Japanese explanations side by side; you pick one language at a time.</sub>
+<sub>Rendered from the real cccat status-line engine (`cccat lang ko` / `cccat lang ja`). The cat's
+face and spinner animate in real time as Claude Code's activity changes; the state label
+(thinking / Git / testing / success …) and the explanation both follow your chosen language. See
+[docs/VERIFICATION.md](docs/VERIFICATION.md) for a live Claude Code TUI capture.</sub>
 
 ## Table of contents
 

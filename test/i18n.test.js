@@ -89,3 +89,29 @@ test('일본어 팩의 예문 번역이 실제 일본어다 (한국어가 아님
     assert.ok(!/[가-힣]/.test(it.example_trans), '한글 혼입: ' + it.id + ' → ' + it.example_trans);
   }
 });
+
+test('상태 라벨이 언어별로 번역된다 (ja)', () => {
+  const cat = require('../lib/cat');
+  assert.equal(cat.label('success', 'ko'), '성공!');
+  assert.equal(cat.label('success', 'ja'), '成功！');
+  assert.equal(cat.label('git', 'ja'), 'Git作業中');
+  // 모든 상태에 일본어 라벨 존재
+  for (const name of Object.keys(cat.STATES)) {
+    assert.ok(cat.LABELS.ja[name], 'ja 라벨 누락: ' + name);
+  }
+  // 미지원 언어는 한국어 폴백
+  assert.equal(cat.label('idle', 'zz'), cat.STATES.idle.label);
+});
+
+test('오늘 카운터가 언어별로 번역된다 (ja: 今日/個/復習)', () => {
+  const content = require('../lib/content');
+  const item = content.byId('git-rebase-onto-main', 'ja');
+  const st = {
+    ...stateMod.EMPTY, activity: 'git', activity_ts: Date.now(),
+    current: { id: item.id, shown_at: Date.now(), mode: 'learn' },
+    today: { date: 'x', shown: 3, review: 1 },
+  };
+  const out = render.render(st, { ...configMod.DEFAULTS, language: 'ja' }, { width: 130 }).join('\n');
+  assert.ok(out.includes('今日 3個'), '일본어 카운터: ' + out);
+  assert.ok(!out.includes('오늘'), '한국어 잔존 없음');
+});
