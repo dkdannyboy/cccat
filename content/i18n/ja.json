@@ -1026,6 +1026,146 @@
    "id": "dbg-tail-the-logs",
    "meaning": "ログをリアルタイムで追う",
    "example_trans": "再現する間、ログをリアルタイムで追ってエラーを見張ってください。"
+  },
+  {
+   "id": "sea-grep-for-pattern",
+   "meaning": "パターンをgrepで検索する",
+   "example_trans": "リポジトリ全体でそのパターンをgrepしてみます。"
+  },
+  {
+   "id": "sea-narrow-down-search",
+   "meaning": "検索範囲を絞り込む",
+   "example_trans": "ファイルフィルタを付けて検索範囲を絞りましょう。"
+  },
+  {
+   "id": "sea-fuzzy-find",
+   "meaning": "ファジー検索でファイルを探す",
+   "example_trans": "ディレクトリを漁らずファジー検索で探しましょう。"
+  },
+  {
+   "id": "fil-symlink-the-file",
+   "meaning": "ファイルにシンボリックリンクを張る",
+   "example_trans": "設定ファイルをホームディレクトリにシムリンクしてください。"
+  },
+  {
+   "id": "fil-glob-pattern",
+   "meaning": "globパターンにマッチする",
+   "example_trans": "globパターンにマッチするファイルだけがリントされます。"
+  },
+  {
+   "id": "fil-watch-for-changes",
+   "meaning": "ファイル変更を監視する",
+   "example_trans": "開発サーバーがファイル変更を監視してリロードします。"
+  },
+  {
+   "id": "ins-pin-the-version",
+   "meaning": "バージョンを固定（ピン留め）する",
+   "example_trans": "CIが再現可能になるようバージョンを固定してください。"
+  },
+  {
+   "id": "ins-bump-the-dependency",
+   "meaning": "依存関係のバージョンを上げる",
+   "example_trans": "脆弱性を修正するため依存のバージョンを上げました。"
+  },
+  {
+   "id": "ins-lockfile-out-of-sync",
+   "meaning": "ロックファイルがずれている",
+   "example_trans": "ロックファイルがpackage.jsonとずれていてインストールが失敗します。"
+  },
+  {
+   "id": "cfg-override-the-default",
+   "meaning": "デフォルト値を上書きする",
+   "example_trans": "ローカル設定ファイルでデフォルトを上書きできます。"
+  },
+  {
+   "id": "cfg-toggle-feature-flag",
+   "meaning": "フィーチャーフラグを切り替える",
+   "example_trans": "段階的に展開するにはフィーチャーフラグを切り替えてください。"
+  },
+  {
+   "id": "cfg-read-from-env",
+   "meaning": "環境変数から読み込む",
+   "example_trans": "キーをハードコードせず環境変数から読み込んでください。"
+  },
+  {
+   "id": "bld-build-from-scratch",
+   "meaning": "ゼロからビルドし直す",
+   "example_trans": "キャッシュを消してゼロからビルドしてください。"
+  },
+  {
+   "id": "bld-invalidate-the-cache",
+   "meaning": "キャッシュを無効化する",
+   "example_trans": "設定変更でキャッシュは自動的に無効化されるべきです。"
+  },
+  {
+   "id": "bld-build-artifacts",
+   "meaning": "ビルド成果物を公開（アップロード）する",
+   "example_trans": "CIがビルド成果物をレジストリに公開します。"
+  },
+  {
+   "id": "doc-changelog-entry",
+   "meaning": "変更履歴（チェンジログ）に項目を追加する",
+   "example_trans": "この修正のチェンジログ項目を忘れずに追加してください。"
+  },
+  {
+   "id": "doc-self-documenting",
+   "meaning": "それ自体が説明になっているコード",
+   "example_trans": "良い命名はコードを自己文書化します。"
+  },
+  {
+   "id": "gh-open-draft-pr",
+   "meaning": "ドラフトPRを作成する",
+   "example_trans": "方向性を早めに見られるようドラフトPRを作ります。"
+  },
+  {
+   "id": "gh-request-changes",
+   "meaning": "PRに修正リクエストを出す",
+   "example_trans": "レビュアーがPRに修正リクエストを出しました。"
+  },
+  {
+   "id": "gh-resolve-the-conversation",
+   "meaning": "（PRレビューの）コメントスレッドを解決済みにする",
+   "example_trans": "フィードバックを反映してスレッドを解決済みにしました。"
+  },
+  {
+   "id": "err-fail-fast",
+   "meaning": "問題があれば即座に失敗させる",
+   "example_trans": "入力を先に検証して、問題があれば早く失敗させましょう。"
+  },
+  {
+   "id": "err-graceful-degradation",
+   "meaning": "（障害時に）機能を段階的に縮退させる",
+   "example_trans": "APIが落ちてもアプリは緩やかに縮退すべきです。"
+  },
+  {
+   "id": "gen-rule-of-thumb",
+   "meaning": "経験則としては",
+   "example_trans": "経験則として、関数は50行以下に保ちましょう。"
+  },
+  {
+   "id": "gen-yak-shaving",
+   "meaning": "本題の前に別作業が連鎖する状況（ヤクの毛刈り）",
+   "example_trans": "1行書く前に午前中ずっと下準備の連鎖に費やしました。"
+  },
+  {
+   "id": "gen-bikeshedding",
+   "meaning": "些細な問題に過剰に議論すること",
+   "example_trans": "ボタンの色で不毛な議論はやめましょう。"
+  },
+  {
+   "id": "perf-hot-path",
+   "meaning": "頻繁に実行される性能に敏感な経路",
+   "example_trans": "ホットパスではメモリ割り当てを避けてください。"
+  },
+  {
+   "id": "perf-memoize-the-result",
+   "meaning": "結果をメモ化（キャッシュ）する",
+   "example_trans": "一度だけ計算するよう結果をメモ化してください。"
+  },
+  {
+   "id": "dbg-rubber-duck",
+   "meaning": "問題を声に出して説明しながら自力で解く（ラバーダック）",
+   "example_trans": "問題を声に出して説明していたら自分でバグを見つけました。"
   }
  ]
 }

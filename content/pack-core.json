@@ -2494,6 +2494,361 @@
     "error"
    ],
    "difficulty": 2
+  },
+  {
+   "id": "sea-grep-for-pattern",
+   "en": "grep for the pattern",
+   "ko": "패턴을 grep으로 검색하다",
+   "type": "collocation",
+   "example": "Let me grep for the pattern across the repo.",
+   "example_ko": "레포 전체에서 그 패턴을 grep으로 찾아볼게요.",
+   "tags": [
+    "search"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "sea-narrow-down-search",
+   "en": "narrow down the search",
+   "ko": "검색 범위를 좁히다",
+   "type": "verb-phrase",
+   "example": "Add a file filter to narrow down the search.",
+   "example_ko": "파일 필터를 걸어서 검색 범위를 좁히세요.",
+   "tags": [
+    "search"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "sea-fuzzy-find",
+   "en": "fuzzy-find the file",
+   "ko": "퍼지 검색으로 파일을 찾다",
+   "type": "verb-phrase",
+   "nuance": "정확한 이름 대신 일부 글자만으로 빠르게 찾을 때 씀",
+   "example": "Just fuzzy-find the file instead of browsing directories.",
+   "example_ko": "디렉터리를 뒤지지 말고 퍼지 검색으로 파일을 찾으세요.",
+   "tags": [
+    "search"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "fil-symlink-the-file",
+   "en": "symlink the file",
+   "ko": "파일에 심볼릭 링크를 걸다",
+   "type": "verb-phrase",
+   "example": "Symlink the config file into the home directory.",
+   "example_ko": "설정 파일을 홈 디렉터리로 심링크하세요.",
+   "tags": [
+    "file"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "fil-glob-pattern",
+   "en": "match the glob pattern",
+   "ko": "glob 패턴에 매칭되다",
+   "type": "collocation",
+   "example": "Only files that match the glob pattern get linted.",
+   "example_ko": "glob 패턴에 매칭되는 파일만 린트돼요.",
+   "tags": [
+    "file"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "fil-watch-for-changes",
+   "en": "watch for file changes",
+   "ko": "파일 변경을 감시하다",
+   "type": "collocation",
+   "example": "The dev server watches for file changes and reloads.",
+   "example_ko": "개발 서버가 파일 변경을 감시하다가 리로드해요.",
+   "tags": [
+    "file"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "ins-pin-the-version",
+   "en": "pin the version",
+   "ko": "버전을 고정하다",
+   "type": "verb-phrase",
+   "nuance": "예상치 못한 업그레이드를 막으려고 특정 버전에 묶어둘 때",
+   "example": "Pin the version so CI stays reproducible.",
+   "example_ko": "CI가 재현 가능하도록 버전을 고정하세요.",
+   "tags": [
+    "install"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "ins-bump-the-dependency",
+   "en": "bump the dependency",
+   "ko": "의존성 버전을 올리다",
+   "type": "verb-phrase",
+   "example": "We bumped the dependency to patch the vulnerability.",
+   "example_ko": "취약점 패치를 위해 의존성 버전을 올렸어요.",
+   "tags": [
+    "install",
+    "security"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "ins-lockfile-out-of-sync",
+   "en": "the lockfile is out of sync",
+   "ko": "락파일이 어긋나 있다",
+   "type": "sentence-pattern",
+   "example": "Install fails because the lockfile is out of sync with package.json.",
+   "example_ko": "락파일이 package.json과 어긋나서 설치가 실패해요.",
+   "tags": [
+    "install",
+    "error"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "cfg-override-the-default",
+   "en": "override the default",
+   "ko": "기본값을 덮어쓰다",
+   "type": "verb-phrase",
+   "example": "You can override the default with a local settings file.",
+   "example_ko": "로컬 설정 파일로 기본값을 덮어쓸 수 있어요.",
+   "tags": [
+    "config"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "cfg-toggle-feature-flag",
+   "en": "toggle the feature flag",
+   "ko": "기능 플래그를 켜고 끄다",
+   "type": "collocation",
+   "example": "Toggle the feature flag to roll it out gradually.",
+   "example_ko": "점진적으로 배포하려면 기능 플래그를 토글하세요.",
+   "tags": [
+    "config",
+    "deploy"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "cfg-read-from-env",
+   "en": "read it from an environment variable",
+   "ko": "환경 변수에서 값을 읽다",
+   "type": "sentence-pattern",
+   "nuance": "비밀값을 코드에 하드코딩하지 않는 관례",
+   "example": "Don't hardcode the key — read it from an environment variable.",
+   "example_ko": "키를 하드코딩하지 말고 환경 변수에서 읽으세요.",
+   "tags": [
+    "config",
+    "security"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "bld-build-from-scratch",
+   "en": "build from scratch",
+   "ko": "처음부터 다시 빌드하다",
+   "type": "collocation",
+   "example": "Clear the cache and build from scratch.",
+   "example_ko": "캐시를 지우고 처음부터 다시 빌드하세요.",
+   "tags": [
+    "build"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "bld-invalidate-the-cache",
+   "en": "invalidate the cache",
+   "ko": "캐시를 무효화하다",
+   "type": "verb-phrase",
+   "example": "Changing the config should invalidate the cache automatically.",
+   "example_ko": "설정이 바뀌면 캐시가 자동으로 무효화돼야 해요.",
+   "tags": [
+    "build",
+    "perf"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "bld-build-artifacts",
+   "en": "publish the build artifacts",
+   "ko": "빌드 산출물을 배포(업로드)하다",
+   "type": "collocation",
+   "example": "CI publishes the build artifacts to the registry.",
+   "example_ko": "CI가 빌드 산출물을 레지스트리에 업로드해요.",
+   "tags": [
+    "build",
+    "deploy"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "doc-changelog-entry",
+   "en": "add a changelog entry",
+   "ko": "체인지로그 항목을 추가하다",
+   "type": "collocation",
+   "example": "Don't forget to add a changelog entry for this fix.",
+   "example_ko": "이 수정에 대한 체인지로그 항목 추가하는 것 잊지 마세요.",
+   "tags": [
+    "docs"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "doc-self-documenting",
+   "en": "self-documenting code",
+   "ko": "그 자체로 설명이 되는 코드",
+   "type": "noun-phrase",
+   "nuance": "이름과 구조가 명확해서 주석이 덜 필요한 코드",
+   "example": "Good naming makes the code self-documenting.",
+   "example_ko": "이름을 잘 지으면 코드가 그 자체로 설명이 돼요.",
+   "tags": [
+    "docs",
+    "review"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "gh-open-draft-pr",
+   "en": "open a draft PR",
+   "ko": "드래프트 PR을 올리다",
+   "type": "collocation",
+   "nuance": "아직 리뷰받을 준비가 안 된 작업을 공유할 때",
+   "example": "I'll open a draft PR so you can see the direction early.",
+   "example_ko": "방향을 미리 볼 수 있게 드래프트 PR을 올릴게요.",
+   "tags": [
+    "github"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "gh-request-changes",
+   "en": "request changes on the PR",
+   "ko": "PR에 수정 요청을 남기다",
+   "type": "collocation",
+   "example": "The reviewer requested changes on the PR.",
+   "example_ko": "리뷰어가 PR에 수정 요청을 남겼어요.",
+   "tags": [
+    "github",
+    "review"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "gh-resolve-the-conversation",
+   "en": "resolve the conversation",
+   "ko": "(PR 리뷰) 코멘트 스레드를 해결 처리하다",
+   "type": "collocation",
+   "example": "I addressed the feedback and resolved the conversation.",
+   "example_ko": "피드백 반영하고 코멘트 스레드를 해결 처리했어요.",
+   "tags": [
+    "github",
+    "review"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "err-fail-fast",
+   "en": "fail fast",
+   "ko": "문제가 있으면 즉시 실패시키다",
+   "type": "verb-phrase",
+   "nuance": "잘못된 상태로 계속 진행하지 말고 초기에 크게 실패시키자는 원칙",
+   "example": "Validate inputs upfront and fail fast.",
+   "example_ko": "입력을 먼저 검증하고, 문제가 있으면 즉시 실패시키세요.",
+   "tags": [
+    "error"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "err-graceful-degradation",
+   "en": "degrade gracefully",
+   "ko": "(장애 시) 기능을 점진적으로 축소하며 버티다",
+   "type": "verb-phrase",
+   "example": "If the API is down, the app should degrade gracefully.",
+   "example_ko": "API가 죽어도 앱은 우아하게 기능을 축소하며 버텨야 해요.",
+   "tags": [
+    "error",
+    "backend"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "gen-rule-of-thumb",
+   "en": "as a rule of thumb",
+   "ko": "경험칙으로는 / 보통은",
+   "type": "idiom",
+   "example": "As a rule of thumb, keep functions under 50 lines.",
+   "example_ko": "경험칙으로는 함수를 50줄 이하로 유지하세요.",
+   "tags": [
+    "general"
+   ],
+   "difficulty": 1
+  },
+  {
+   "id": "gen-yak-shaving",
+   "en": "yak shaving",
+   "ko": "본 작업 전에 딴 일이 꼬리를 무는 상황",
+   "type": "idiom",
+   "nuance": "버그 고치려다 빌드 고치고, 빌드 고치려다 환경 고치는 식의 연쇄",
+   "example": "I spent the morning yak shaving before writing a single line.",
+   "example_ko": "한 줄 쓰기도 전에 오전 내내 딴 일만 연쇄로 처리했어요.",
+   "tags": [
+    "general"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "gen-bikeshedding",
+   "en": "bikeshedding",
+   "ko": "사소한 문제에 과하게 논쟁하는 것",
+   "type": "idiom",
+   "nuance": "중요한 설계 대신 변수 이름 같은 데 시간을 쏟는 상황을 꼬집을 때",
+   "example": "Let's not bikeshed over the button color.",
+   "example_ko": "버튼 색깔 가지고 소모적인 논쟁은 하지 맙시다.",
+   "tags": [
+    "general",
+    "collab"
+   ],
+   "difficulty": 3
+  },
+  {
+   "id": "perf-hot-path",
+   "en": "the hot path",
+   "ko": "자주 실행되는 성능 민감 경로",
+   "type": "noun-phrase",
+   "example": "Avoid allocations in the hot path.",
+   "example_ko": "핫 패스에서는 메모리 할당을 피하세요.",
+   "tags": [
+    "perf"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "perf-memoize-the-result",
+   "en": "memoize the result",
+   "ko": "결과를 메모이즈(캐싱)하다",
+   "type": "verb-phrase",
+   "example": "Memoize the result so we compute it only once.",
+   "example_ko": "한 번만 계산하도록 결과를 메모이즈하세요.",
+   "tags": [
+    "perf"
+   ],
+   "difficulty": 2
+  },
+  {
+   "id": "dbg-rubber-duck",
+   "en": "rubber-duck the problem",
+   "ko": "문제를 소리 내어 설명하며 스스로 풀다(러버덕 디버깅)",
+   "type": "verb-phrase",
+   "example": "I rubber-ducked the problem and found the bug myself.",
+   "example_ko": "문제를 소리 내어 설명하다가 버그를 스스로 찾았어요.",
+   "tags": [
+    "debug"
+   ],
+   "difficulty": 2
   }
  ]
 }
